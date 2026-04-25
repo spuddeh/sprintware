@@ -1,0 +1,18 @@
+# WolvenKit
+*.cpmodproj
+layout.xml
+.projectFiles/
+packed/
+custom_refs.txt
+custom_tweaks.txt
+
+# Distribution archives (built by WolvenKit Tools > Pack Mod)
+*.zip
+
+# Editor
+.vscode/
+.history/
+*.log
+
+# Research / dev artifacts (TweakDB dumps, extracted curvesets, etc.)
+source/raw/
