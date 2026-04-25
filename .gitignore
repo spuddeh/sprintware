@@ -9,6 +9,11 @@ custom_tweaks.txt
 # Distribution archives (built by WolvenKit Tools > Pack Mod)
 *.zip
 
+# Nexus images (screenshots, headers, GIMP source)
+Images/
+images/
+*.xcf
+
 # Editor
 .vscode/
 .history/

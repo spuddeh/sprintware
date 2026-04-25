@@ -49,7 +49,7 @@ function Probe:Draw()
     ---@diagnostic disable-next-line: param-type-mismatch
     if ImGui.Begin("Sprintware Probe", WINDOW_FLAGS) then
         ImGui.Text(string.format("Reflexes (attr)   : %.1f", reflexes))
-        ImGui.Text(string.format("MaxSpeed (stat)   : %.2f m/s   [clamp 0..15]", maxSpeed))
+        ImGui.Text(string.format("MaxSpeed (stat)   : %.2f m/s   [stat clamp 0..15]", maxSpeed))
         ImGui.Separator()
         ImGui.Text(string.format("Velocity horiz    : %.2f m/s", hSpeed))
         ImGui.Text(string.format("Velocity vert     : %.2f m/s", vSpeed))

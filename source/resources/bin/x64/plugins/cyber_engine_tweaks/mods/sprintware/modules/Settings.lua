@@ -107,11 +107,12 @@ function Settings:Build()
     self.nativeSettings.addSwitch(
         PATH .. "/info",
         "Engine Cap: 15 m/s",
-        "Cyberpunk 2077 hard-clamps the player's MaxSpeed stat at 15 m/s "
-            .. "(roughly 54 km/h). This is enforced by the engine and cannot be bypassed "
-            .. "from a CET mod. The slider applies an additive bonus on top of your "
-            .. "current sprint speed; once the total reaches 15 m/s further boost has no "
-            .. "effect. This switch is informational only and does nothing.",
+        "Cyberpunk 2077 hard-clamps the player's movement speed at 15 m/s (roughly "
+            .. "54 km/h). The cap is enforced at multiple layers in the engine, including "
+            .. "native physics code that no script-side mod can reach. The slider applies "
+            .. "an additive bonus on top of your current sprint speed; once the total "
+            .. "reaches 15 m/s further boost has no effect. This switch is informational "
+            .. "only and does nothing.",
         false, false,
         function() end
     )
