@@ -16,7 +16,6 @@ Bind a key. Press it. Run faster. Press it again. Run normal. That is the entire
 [*][b]Boost starts off[/b] every time you load a save. Stops you sprinting off a balcony you forgot about.
 [*][b]Optional debug overlay[/b]: a small on-screen readout of your current MaxSpeed, velocity, and Reflexes. Off by default, toggle it on in the settings tab.
 [/list]
-
 [line]
 [color=#00ffff][size=5][b]How It Works[/b][/size][/color]
 The boost adds a flat bonus to the player's MaxSpeed stat. It only affects how fast V moves on foot. Vehicles, NPCs, time of day, animation speed, all untouched.
@@ -35,7 +34,6 @@ If you have the Reflexes "Mad Dash" perk, you may notice that dashing while the 
 [*][url=https://www.nexusmods.com/cyberpunk2077/mods/7780]Codeware[/url]
 [*][url=https://www.nexusmods.com/cyberpunk2077/mods/3518]Native Settings UI[/url]
 [/list]
-
 [line]
 [color=#00ffff][size=5][b]Installation[/b][/size][/color]
 Install the requirements, then extract the archive into your Cyberpunk 2077 game directory.
@@ -45,7 +43,6 @@ Delete the following folder:
 [list]
 [*][font=Courier New]bin\x64\plugins\cyber_engine_tweaks\mods\sprintware\[/font]
 [/list]
-
 [line]
 [color=#00ffff][size=5][b]Status[/b][/size][/color]
 This mod is feature complete. I will fix bugs as they come up. I do not plan to add new features.

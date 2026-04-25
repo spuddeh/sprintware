@@ -1,9 +1,10 @@
 # Sprintware — Nexus Changelogs
 
-### 1.0.0
+### v1.0.0
 - Initial upload
 
 ---
+
 ## Stickied Comment BBCode
 
 ```
@@ -13,3 +14,4 @@
 [list][*]Initial upload
 [/list]
 ```
+
