@@ -1,0 +1,55 @@
+[center][color=#00ffff][size=6][b]Sprintware[/b][/size][/color]
+[i]Quickhack your own legs.[/i]
+
+[size=2]Made on request for [url=https://www.nexusmods.com/profile/TheRealJonCross]TheRealJonCross[/url].[/size][/center]
+[line]
+[color=#00ffff][size=5][b]What This Is[/b][/size][/color]
+For a city famous for human enhancement, V runs surprisingly like a normal person. Sprintware is a small CET mod that adds a configurable speed boost you can toggle with a hot key. Think of it as a piece of locomotion firmware your ripperdoc forgot to install.
+
+Bind a key. Press it. Run faster. Press it again. Run normal. That is the entire mod.
+
+[line]
+[color=#00ffff][size=5][b]Features[/b][/size][/color]
+[list]
+[*][b]Toggle keybind[/b] and a [b]boost slider[/b] (0 to +15 m/s, default +8), both set in Native Settings.
+[*][b]Live updates[/b]: change the slider while the boost is on and the new value takes effect immediately.
+[*][b]Boost starts off[/b] every time you load a save. Stops you sprinting off a balcony you forgot about.
+[*][b]Optional debug overlay[/b]: a small on-screen readout of your current MaxSpeed, velocity, and Reflexes. Off by default, toggle it on in the settings tab.
+[/list]
+
+[line]
+[color=#00ffff][size=5][b]How It Works[/b][/size][/color]
+The boost adds a flat bonus to the player's MaxSpeed stat. It only affects how fast V moves on foot. Vehicles, NPCs, time of day, animation speed, all untouched.
+
+[color=#00ffff][size=4][b]About the Speed Cap[/b][/size][/color]
+Cyberpunk 2077 has a hard 15 m/s ceiling on the player's MaxSpeed stat (about 54 km/h). The slider lets you go up to +15 m/s of additive boost, but your total speed (base sprint + Reflexes bonus + this mod's boost) clamps at 15. Once you hit the cap, more slider does nothing.
+
+In practice, +5 to +10 m/s feels great. Higher values still apply, but you may not feel the difference past the cap.
+
+If you have the Reflexes "Mad Dash" perk, you may notice that dashing while the boost is active briefly hits roughly 30 m/s. That is not a feature of this mod. The dash uses a different velocity mechanism that the engine lets temporarily exceed the cap. Happy accident, free of charge.
+
+[line]
+[color=#00ffff][size=5][b]Requirements[/b][/size][/color]
+[list]
+[*][url=https://www.nexusmods.com/cyberpunk2077/mods/107]Cyber Engine Tweaks[/url]
+[*][url=https://www.nexusmods.com/cyberpunk2077/mods/7780]Codeware[/url]
+[*][url=https://www.nexusmods.com/cyberpunk2077/mods/3518]Native Settings UI[/url]
+[/list]
+
+[line]
+[color=#00ffff][size=5][b]Installation[/b][/size][/color]
+Install the requirements, then extract the archive into your Cyberpunk 2077 game directory.
+
+[color=#00ffff][size=4][b]Uninstallation[/b][/size][/color]
+Delete the following folder:
+[list]
+[*][font=Courier New]bin\x64\plugins\cyber_engine_tweaks\mods\sprintware\[/font]
+[/list]
+
+[line]
+[color=#00ffff][size=5][b]Compatibility[/b][/size][/color]
+[list]
+[*]Pure CET runtime mod. Does not replace, modify, or stream any game files.
+[*]No Redscript, no TweakXL, no ArchiveXL. Compatible with anything that does not fight over the player's MaxSpeed stat.
+[*]Other mods that boost MaxSpeed will stack additively with this one. The 15 m/s cap still applies to the total.
+[/list]
