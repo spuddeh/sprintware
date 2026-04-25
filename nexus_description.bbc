@@ -47,6 +47,10 @@ Delete the following folder:
 [/list]
 
 [line]
+[color=#00ffff][size=5][b]Status[/b][/size][/color]
+This mod is feature complete. I will fix bugs as they come up. I do not plan to add new features.
+
+[line]
 [color=#00ffff][size=5][b]Compatibility[/b][/size][/color]
 [list]
 [*]Pure CET runtime mod. Does not replace, modify, or stream any game files.
