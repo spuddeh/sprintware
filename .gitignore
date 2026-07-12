@@ -21,3 +21,7 @@ images/
 
 # Research / dev artifacts (TweakDB dumps, extracted curvesets, etc.)
 source/raw/
+
+# Local Claude Code orientation file. Machine-specific working notes;
+# never published, never in git. See wiki: decisions/per-mod-claude-md-superseded
+CLAUDE.md
