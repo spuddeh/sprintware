@@ -54,3 +54,6 @@ This mod is feature complete. I will fix bugs as they come up. I do not plan to 
 [*]No Redscript, no TweakXL, no ArchiveXL. Compatible with anything that does not fight over the player's MaxSpeed stat.
 [*]Other mods that boost MaxSpeed will stack additively with this one. The 15 m/s cap still applies to the total.
 [/list]
+[line]
+[color=#00ffff][size=5][b]Disclaimer[/b][/size][/color]
+This mod was developed with the assistance of an LLM. All in-game testing and code validation was performed by a human. No rogue AIs were permitted through the Blackwall.
