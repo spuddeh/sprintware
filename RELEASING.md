@@ -18,23 +18,36 @@ that were already there). The workflow stages `contentDir` into `installDir` and
 | --- | --- | --- | --- |
 | `sprintware` | Sprintware | [29163](https://www.nexusmods.com/cyberpunk2077/mods/29163) | main |
 
-## One-time setup — BOTH steps are required before the first real release
+## One-time setup
 
-1. **API key (secret).** Create a Nexus personal API key at
+1. **API key — a real secret.** Create a Nexus personal API key at
    <https://www.nexusmods.com/settings/api-keys> and add it as the repository secret
-   **`NEXUSMODS_API_KEY`** (Settings > Secrets and variables > Actions).
+   **`NEXUSMODS_API_KEY`** (Settings > Secrets and variables > Actions > **Secrets**).
 
-2. **File ID (manifest).** Open the mod's **Files** tab > **API Info** (or the Manage Files edit
-   menu), take the ID, and replace `REPLACE_WITH_SPRINTWARE_FILE_ID` in `release-manifest.json`.
+2. **File id — a repository VARIABLE, not a secret, and not in this repo.**
 
-   > **Do not take this value from the public v1 API.** They are different id spaces, and the wrong
-   > one looks completely plausible. The v1 API reports `file_id=143279` for Sprintware v1.0.0; the
-   > value this manifest wants is the one the **API Info panel** shows, which Nexus confusingly still
-   > labels **"Group ID"**. (Cross-checked against Clothing Sets Checklist, whose manifest holds
-   > `2895385` while its v1 API file ids are all in the 132k–150k range — no overlap.)
+   | Artifact | Variable |
+   | --- | --- |
+   | `sprintware` | **`NEXUS_FILE_ID_SPRINTWARE`** |
+
+   Set them under Settings > Secrets and variables > Actions > **Variables**.
+
+   > **The first Nexus upload must be done BY HAND.** A `file_id` does not exist until a file has
+   > been uploaded to the mod page once — so this pipeline can publish a mod's **updates**, never its
+   > **first** file. That is also why the id is not committed: before the first upload there is nothing
+   > to commit but a lie. Until the variable is set, the workflow hard-fails rather than uploading into
+   > the void.
    >
-   > File IDs are not secret, so they live in the manifest, not in a secret. The workflow **hard-fails**
-   > while the placeholder is still there, so a mistake here cannot silently ship.
+   > **Where to get it:** the mod page's **Files** tab > **API Info** (or the Manage Files edit menu),
+   > where Nexus still labels it **"Group ID"**. It is only visible to you, as the mod's author.
+   >
+   > **Do NOT take it from the public v1 API.** That endpoint has a field also called `file_id`, it is a
+   > **different id space**, and the wrong value looks entirely plausible — it fails only at release time.
+   >
+   > **Why a variable and not a secret:** it is an identifier, not a credential. It authorizes nothing
+   > without `NEXUSMODS_API_KEY`, and anyone holding that key could enumerate the ids anyway. Masking it
+   > as a secret would buy no safety and would render it `***` in the logs — making a wrong id, the one
+   > mistake that is actually easy to make here, much harder to diagnose.
 
 ## Cutting a new release
 
