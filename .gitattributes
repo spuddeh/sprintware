@@ -1,0 +1,19 @@
+# Normalize all text files to LF in the repository (stable diffs, and the
+# GitHub Actions bash steps never see stray CRLF / \r).
+#
+# Why it matters: release.yml's `run:` blocks execute as bash on the ubuntu runner. A CRLF
+# blob makes every line end in \r and bash fails with "$'\r': command not found" — a break
+# that is invisible in the repo and only shows up on release day.
+#
+# This currently changes NOTHING: `git add --renormalize` moved not a single blob, because
+# core.autocrlf=true on this machine was already converting CRLF to LF on commit. The rule is
+# here so the guarantee does not depend on one machine's git config. Matches the checklist
+# mods, whose pipeline this one is copied from.
+* text=auto eol=lf
+
+# Binary assets: no EOL normalization, no textual diff.
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.xcf binary
