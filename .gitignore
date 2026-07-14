@@ -1,12 +1,13 @@
-# WolvenKit
-*.cpmodproj
-layout.xml
-.projectFiles/
-packed/
-custom_refs.txt
-custom_tweaks.txt
+# Sprintware is a PURE CET (Lua) mod — no archive, no redscript, no TweakXL — so it has no
+# WolvenKit project either. It used to: the Lua sat under source/resources/bin/x64/plugins/...
+# and WolvenKit "packed" it into a zip of exactly the files that were already there. That bought
+# nothing, so it was flattened on 2026-07-14 and the WolvenKit scaffolding deleted.
+#
+# The layout is now `sprintware/` at the repo root — the folder exactly as it lands in
+# bin\x64\plugins\cyber_engine_tweaks\mods\. deploy-mod.ps1 calls this layout 4 and handles it.
+# Do NOT reintroduce a source/ or packed/ tree unless the mod gains a real archive.
 
-# Distribution archives (built by WolvenKit Tools > Pack Mod)
+# Distribution archives
 *.zip
 
 # Nexus images (screenshots, headers, GIMP source)
@@ -18,9 +19,6 @@ images/
 .vscode/
 .history/
 *.log
-
-# Research / dev artifacts (TweakDB dumps, extracted curvesets, etc.)
-source/raw/
 
 # Local Claude Code orientation file. Machine-specific working notes;
 # never published, never in git. See wiki: decisions/per-mod-claude-md-superseded
