@@ -59,13 +59,14 @@ that were already there). The workflow stages `contentDir` into `installDir` and
    gh release create sprintware-v1.1.0 --title "Sprintware v1.1.0" --notes "..."
    ```
 
-   The body is the GitHub release notes. For the **Nexus file description** (capped at 255 chars),
-   put a `<!-- nexus-description-end -->` marker on its own line — everything *before* it becomes the
-   file description. Omit the marker to send none.
+   The release body feeds two Nexus fields, split by a `<!-- nexus-description-end -->` marker on its own line. Everything **before** the marker becomes the **file description** (capped at 255 chars — for example a new requirement, or "delete the old folder first"); everything **after** it is appended to the mod page's **changelog**. With no marker at all, the whole body becomes the changelog and no file description is sent.
 3. On publish the workflow parses the tag, looks the artifact up in the manifest, stages and zips it
    as `Sprintware_v<version>.zip`, attaches it to the GitHub Release, and uploads to Nexus.
-4. **Manually on the Nexus page** (the API does *not* do these): bump the **Mod Version** field, add
-   the changelog entry, and update the description. The upload action sets only the *file* version.
+4. **On the Nexus mod page:** the workflow sets the **Mod Version** field and appends the
+   **changelog** entry itself. Only the mod **description** is still manual.
+   The changelog endpoint APPENDS rather than replaces, so publishing the same release twice
+   leaves the entry on the page twice and nothing here can remove it. A `workflow_dispatch`
+   re-run never posts a changelog.
 
 ## The v1.0.0 release is backfilled, and deliberately does not touch Nexus
 
@@ -81,9 +82,10 @@ newer release, so taking "Latest" would have been wrong. Here v1.0.0 **is** the 
 ## Notes
 
 - The Nexus upload uses [`Nexus-Mods/upload-action`](https://github.com/Nexus-Mods/upload-action),
-  pinned to `v1.0.0-beta.8` (the Nexus v3 upload API). beta.8's `createModFileVersion` replaces the
-  old `createUpdateGroupVersion`, which Nexus **removes on 2026-09-09** — so this pin is required to
-  keep uploading after that date. The API is still evaluation-only; bump the pin when a stable release
-  appears, and watch for further input renames.
+  pinned to `v1.0.0-beta.10` (the Nexus v3 upload API). The `createModFileVersion` endpoint it
+  uses replaces the old `createUpdateGroupVersion`, which Nexus **removes on 2026-09-09** — so a
+  pin older than beta.8 stops uploading after that date. beta.9 added `update_mod_version`, beta.10
+  the changelog endpoint; both are wired up here. The API is still labelled evaluation-only, so bump
+  the pin when a stable release appears (watch for further input renames).
 - `archive_existing_version: true` archives the previous file on a new upload.
 - `show_requirements_pop_up: true` — Sprintware requires CET, Codeware and Native Settings.
